@@ -1,40 +1,25 @@
-package Page;
+package Pages;
 
 import Utilities.ReusableMethods;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class ZeroKmCar extends ReusableMethods {
+public class ZeroKmCarPage extends ReusableMethods {
     WebDriver driver;
 
-    public ZeroKmCar(WebDriver driver) {
+    public ZeroKmCarPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    @FindBy(xpath = "//p[contains(text(),'Sıfır km araç özelliklerini ve')]")
-    private WebElement zeroKmCarButton;
-
-    @FindBy(xpath = "//select[@class='brands']")
-    private WebElement brand;
-
-    @FindBy(xpath = "//select[@class='select-sub-model']")
-    private WebElement model;
-
-    @FindBy(xpath = "//button[@id='js-hook-search-by-brand-modelbase']")
-    private WebElement search;
-
-    @FindBy(xpath = "//h1[@class='yellow-underline']")
-    private WebElement textElement;
-
-    @FindBy(xpath = "//img[@alt='arabam.com']")
-    private WebElement logo;
-
-    @FindBy(xpath = "//a[@data-href='#engine-options']")
-    private WebElement engineOptions;
+    private final String zeroKmCarButton = "//p[contains(text(),'Sıfır km araç özelliklerini ve')]";
+    private final String brand = "//select[@class='brands']";
+    private final String model = "//select[@class='select-sub-model']";
+    private final String search = "//button[@id='js-hook-search-by-brand-modelbase']";
+    private final String textElement = "//h1[@class='yellow-underline']";
+    private final String logo = "//img[@alt='arabam.com']";
+    private final String engineOptions = "//a[@data-href='#engine-options']";
 
     public void navigateToUrl(){
         driver.navigate().to("https://www.arabam.com/");
@@ -49,7 +34,7 @@ public class ZeroKmCar extends ReusableMethods {
         dropDownSelectByText(brand,"BMW");
     }
 
-    public void selecetModel(){
+    public void selectModel(){
         dropDownSelectByText(model,"7 serisi");
     }
 
@@ -58,7 +43,7 @@ public class ZeroKmCar extends ReusableMethods {
     }
 
     public void verify(){
-        Assert.assertEquals("2022 BMW 7 serisi Fiyat Listesi",textElement.getText());
+        textAssert(textElement,"2022 BMW 7 serisi Fiyat Listesi");
         Assert.assertEquals("https://www.arabam.com/sifir-km/bmw-7-serisi-fiyat-listesi-yakit-tuketimi",driver.getCurrentUrl());
         Assert.assertEquals("BMW 7 serisi Fiyat Listesi - Sıfır 2022 BMW 7 serisi Fiyatları",driver.getTitle());
         isDisplayed(logo);
