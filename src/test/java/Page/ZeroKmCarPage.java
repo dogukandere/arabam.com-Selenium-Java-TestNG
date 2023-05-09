@@ -1,5 +1,6 @@
-package Pages;
+package Page;
 
+import Page.CarDetailPage;
 import Utilities.ReusableMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -13,41 +14,28 @@ public class ZeroKmCarPage extends ReusableMethods {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    private final String zeroKmCarButton = "//p[contains(text(),'Sıfır km araç özelliklerini ve')]";
+
     private final String brand = "//select[@class='brands']";
     private final String model = "//select[@class='select-sub-model']";
     private final String search = "//button[@id='js-hook-search-by-brand-modelbase']";
-    private final String textElement = "//h1[@class='yellow-underline']";
-    private final String logo = "//img[@alt='arabam.com']";
-    private final String engineOptions = "//a[@data-href='#engine-options']";
 
-    public void navigateToUrl(){
-        driver.navigate().to("https://www.arabam.com/");
+
+    public ZeroKmCarPage selectBrand(String brandName){
+        dropDownSelectByText(brand, brandName);
+
+        return this;
     }
 
-    public void goToZeroKmCarPage(){
-        click(zeroKmCarButton);
-        waitFor(2);
+    public ZeroKmCarPage selectModel(String modelName){
+        dropDownSelectByText(model,modelName);
+
+        return this;
     }
 
-    public void selectBrand(){
-        dropDownSelectByText(brand,"BMW");
-    }
+    public CarDetailPage clickSearchButton(){
 
-    public void selectModel(){
-        dropDownSelectByText(model,"7 serisi");
-    }
-
-    public void searhCar(){
         click(search);
-    }
 
-    public void verify(){
-        textAssert(textElement,"2022 BMW 7 serisi Fiyat Listesi");
-        Assert.assertEquals("https://www.arabam.com/sifir-km/bmw-7-serisi-fiyat-listesi-yakit-tuketimi",driver.getCurrentUrl());
-        Assert.assertEquals("BMW 7 serisi Fiyat Listesi - Sıfır 2022 BMW 7 serisi Fiyatları",driver.getTitle());
-        isDisplayed(logo);
-        isClickable(engineOptions);
-        waitFor(2);
+        return new CarDetailPage(driver);
     }
 }

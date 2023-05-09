@@ -17,6 +17,11 @@ public abstract class TestBase {
         driver= new ChromeDriver();
         driver.manage().window().maximize();
     }
+
+    public void navigateToUrl(String url) {
+
+        driver.navigate().to(url);
+    }
     @AfterClass
     public void After(){
         driver.quit();
