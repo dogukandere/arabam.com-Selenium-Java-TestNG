@@ -19,7 +19,7 @@ public class ArabamHomePage extends ReusableMethods {
     public ZeroKmCarPage clickZeroCarButton(){
 
         click(ZERO_KM_CAR_BUTTON);
-        return new Page.ZeroKmCarPage(driver); //buraya yönlendiriyor
+        return new Page.ZeroKmCarPage(driver); 
     }
 
     public boolean isArabamLogoDisplayed() {
