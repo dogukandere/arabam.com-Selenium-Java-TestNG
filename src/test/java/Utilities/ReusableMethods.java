@@ -49,7 +49,6 @@ public class ReusableMethods {
     public boolean isClickable(String xpath){
         WebElement element = driver.findElement(By.xpath(xpath));
         return element.isEnabled();
-
     }
 
     public void sendKeys(String xpath, String value){
@@ -74,7 +73,6 @@ public class ReusableMethods {
     }
 
     protected String getTextOfElement(String xpath) {
-
         return driver.findElement(By.xpath(xpath)).getText();
     }
 }

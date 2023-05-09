@@ -1,10 +1,9 @@
 package Page;
 
-import Page.CarDetailPage;
 import Utilities.ReusableMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+
 
 public class ZeroKmCarPage extends ReusableMethods {
     WebDriver driver;
@@ -15,26 +14,28 @@ public class ZeroKmCarPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final String brand = "//select[@class='brands']";
-    private final String model = "//select[@class='select-sub-model']";
-    private final String search = "//button[@id='js-hook-search-by-brand-modelbase']";
+    private final String BRAND = "//select[@class='brands']";
+    private final String MODEL = "//select[@class='select-sub-model']";
+    private final String SEARCH_BUTTON = "//button[@id='js-hook-search-by-brand-modelbase']";
 
 
     public ZeroKmCarPage selectBrand(String brandName){
-        dropDownSelectByText(brand, brandName);
+
+        dropDownSelectByText(BRAND, brandName);
 
         return this;
     }
 
     public ZeroKmCarPage selectModel(String modelName){
-        dropDownSelectByText(model,modelName);
+
+        dropDownSelectByText(MODEL,modelName);
 
         return this;
     }
 
     public CarDetailPage clickSearchButton(){
 
-        click(search);
+        click(SEARCH_BUTTON);
 
         return new CarDetailPage(driver);
     }

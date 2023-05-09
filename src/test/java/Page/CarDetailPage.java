@@ -27,7 +27,4 @@ public class CarDetailPage extends ReusableMethods {
         return isClickable(ENGINE_OPTIONS_BUTTON);
     }
 
-
-
-
 }

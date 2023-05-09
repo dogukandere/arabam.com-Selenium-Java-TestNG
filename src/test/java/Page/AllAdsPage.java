@@ -1,9 +1,8 @@
-package Pages;
+package Page;
 
 import Utilities.ReusableMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class AllAdsPage extends ReusableMethods {
     WebDriver driver;
@@ -14,25 +13,29 @@ public class AllAdsPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final String allAdsElement =  "//span[contains(text(),'Tüm İlanlar')]";
-    private final String favAdsButton = "//a[@class='fav-menu-button']";
-    private final String favSearchButton = "//button[@id='favSearchButton']";
-    private final String compareAdsButton = "//button[@id='compareButton']";
-    private final String logo =  "//img[@alt='arabam.com']";
+    private final String FAV_ADS_BUTTON = "//a[@class='fav-menu-button']";
+    private final String FAV_SEARCH_BUTTON = "//button[@id='favSearchButton']";
+    private final String COMPARE_ADS_BUTTON = "//button[@id='compareButton']";
+    private final String ARABAM_COM_LOGO =  "//img[@alt='arabam.com']";
 
-    public void goToAllAds(){
-        click(allAdsElement);
-    }
-    public void verifyClickable(){
-        isClickable(favAdsButton);
-        isClickable(favSearchButton);
-        isClickable(compareAdsButton);
+    public boolean isFavAdsButtonDisplayed(){
+
+        return isClickable(FAV_ADS_BUTTON);
     }
 
-    public void verifyLogoLinkTitle(){
-        isDisplayed(logo);
-        Assert.assertEquals("https://www.arabam.com/ikinci-el",driver.getCurrentUrl());
-        Assert.assertEquals("İkinci El Araba Fiyatları, Satılık 2. El Araba Modelleri arabam.com'da!",driver.getTitle());
-        waitFor(3);
+    public boolean isFavSearchButtonDisplayed(){
+
+        return isClickable(FAV_SEARCH_BUTTON);
     }
+
+    public boolean isCompareAdsButtonDisplayed(){
+
+        return isClickable(COMPARE_ADS_BUTTON);
+    }
+
+    public boolean isArabamLogoDisplayed(){
+
+        return isDisplayed(ARABAM_COM_LOGO);
+    }
+
 }
