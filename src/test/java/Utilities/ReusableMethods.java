@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.sql.Driver;
 import java.time.Duration;
 
 
@@ -38,16 +40,16 @@ public class ReusableMethods {
         element.click();
     }
 
-    public void isDisplayed(String xpath){
+    public boolean isDisplayed(String xpath){
         WebElement element = driver.findElement(By.xpath(xpath));
         waitUntilElementIsVisible(element,10);
-        Assert.assertTrue(element.isDisplayed());
+        return element.isDisplayed();
     }
 
-    public void isClickable(String xpath){
+    public boolean isClickable(String xpath){
         WebElement element = driver.findElement(By.xpath(xpath));
-        waitUntilElementIsClickable(element,10);
-        Assert.assertTrue(element.isEnabled());
+        return element.isEnabled();
+
     }
 
     public void sendKeys(String xpath, String value){
@@ -71,8 +73,8 @@ public class ReusableMethods {
         VisibleText.selectByVisibleText(value);
     }
 
-    public void textAssert(String xpath, String expected){
-        WebElement element = driver.findElement(By.xpath(xpath));
-        Assert.assertEquals(element.getText(),expected);
+    protected String getTextOfElement(String xpath) {
+
+        return driver.findElement(By.xpath(xpath)).getText();
     }
 }
