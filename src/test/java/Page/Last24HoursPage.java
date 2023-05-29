@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class Last24HourPage extends ReusableMethods {
+public class Last24HoursPage extends ReusableMethods {
     WebDriver driver;
 
-    public Last24HourPage(WebDriver driver) {
+    public Last24HoursPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver,this);

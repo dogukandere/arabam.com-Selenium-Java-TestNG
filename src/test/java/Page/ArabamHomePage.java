@@ -3,7 +3,6 @@ package Page;
 import Utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.devtools.v108.page.Page;
 import org.openqa.selenium.support.PageFactory;
 
 public class ArabamHomePage extends ReusableMethods {
@@ -37,9 +36,9 @@ public class ArabamHomePage extends ReusableMethods {
         return new AllAdsPage(driver);
     }
 
-    public Last24HourPage goToLast24HourPage(){
+    public Last24HoursPage goToLast24HourPage(){
 
         click(LAST_24_HOUR_BUTTON);
-        return new Last24HourPage(driver);
+        return new Last24HoursPage(driver);
     }
 }
