@@ -3,6 +3,7 @@ package Test;
 import Page.ArabamHomePage;
 import Page.CarDetailPage;
 import Page.AllAdsPage;
+import Page.Last24HourPage;
 import Utilities.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +14,7 @@ public class ArabamTest extends TestBase {
     private ArabamHomePage arabamHomePage;
     private CarDetailPage carDetailPage;
     private AllAdsPage allAdsPage;
+    private Last24HourPage last24HourPage;
 
     private static final String mainUrl = "https://www.arabam.com/";
 
@@ -21,6 +23,7 @@ public class ArabamTest extends TestBase {
          arabamHomePage = new ArabamHomePage(driver);
          carDetailPage = new CarDetailPage(driver);
          allAdsPage = new AllAdsPage(driver);
+         last24HourPage = new Last24HourPage(driver);
 
          navigateToUrl(mainUrl);
      }
@@ -49,5 +52,15 @@ public class ArabamTest extends TestBase {
         Assert.assertTrue(allAdsPage.isArabamLogoDisplayed());
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.arabam.com/ikinci-el");
         Assert.assertEquals(driver.getTitle(),"İkinci El Araba Fiyatları, Satılık 2. El Araba Modelleri arabam.com'da!");
+    }
+
+    @Test(priority = 3 , description = "Verify the last 24 hour page")
+    public void test03(){
+         navigateToUrl(mainUrl);
+         arabamHomePage.goToLast24HourPage();
+         Assert.assertEquals(driver.getCurrentUrl(),"https://www.arabam.com/ikinci-el?days=1");
+         Assert.assertTrue(last24HourPage.isClearButtonDisplayed());
+         Assert.assertTrue(last24HourPage.isRentACarButtonDisplayed());
+         Assert.assertTrue(last24HourPage.isYearButtonDisplayed());
     }
 }
