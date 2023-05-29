@@ -28,7 +28,7 @@ public class ArabamTest extends TestBase {
     @Test(priority = 1 , description = "Search a car on the zero km car page")
     public void checkBmw7SeriesDetailPage(){
         arabamHomePage.clickZeroCarButton()
-                .selectBrand("BMW")
+                .selectBrand("BMWW")
                 .selectModel("7 serisi")
                 .clickSearchButton();
 
