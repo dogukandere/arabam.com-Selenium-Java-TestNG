@@ -32,7 +32,7 @@ public class ArabamTest extends TestBase {
     public void checkBmw7SeriesDetailPage(){
         arabamHomePage.clickZeroCarButton()
                 .selectBrand("BMW")
-                .selectModel("8 serisi")
+                .selectModel("7 serisi")
                 .clickSearchButton();
 
         Assert.assertEquals(carDetailPage.getCarDetailTitle(),"2022 BMW 7 serisi Fiyat Listesi");
