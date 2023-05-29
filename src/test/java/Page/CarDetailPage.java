@@ -1,6 +1,7 @@
 package Page;
 
 import Utilities.ReusableMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -13,9 +14,9 @@ public class CarDetailPage extends ReusableMethods {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    private final String DETAIL_PAGE_TITLE_XPATH = "//h1[@class='yellow-underline']";
-    private final String ENGINE_OPTIONS_BUTTON = "//a[@data-href='#engine-options']";
 
+    private final By DETAIL_PAGE_TITLE_XPATH = By.xpath("//h1[@class='yellow-underline']");
+    private final By ENGINE_OPTIONS_BUTTON = By.xpath("//a[@data-href='#engine-options']");
 
     public String getCarDetailTitle() {
 

@@ -1,6 +1,7 @@
 package Page;
 
 import Utilities.ReusableMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,11 +13,10 @@ public class AllAdsPage extends ReusableMethods {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-
-    private final String FAV_ADS_BUTTON = "//a[@class='fav-menu-button']";
-    private final String FAV_SEARCH_BUTTON = "//button[@id='favSearchButton']";
-    private final String COMPARE_ADS_BUTTON = "//button[@id='compareButton']";
-    private final String ARABAM_COM_LOGO =  "//img[@alt='arabam.com']";
+    private final By FAV_ADS_BUTTON = By.xpath("//a[@class='fav-menu-button']") ;
+    private final By FAV_SEARCH_BUTTON = By.xpath("//button[@id='favSearchButton']");
+    private final By COMPARE_ADS_BUTTON = By.xpath("//button[@id='compareButton']");
+    private final By ARABAM_COM_LOGO = By.xpath("//img[@alt='arabam.com']");
 
     public boolean isFavAdsButtonDisplayed(){
 

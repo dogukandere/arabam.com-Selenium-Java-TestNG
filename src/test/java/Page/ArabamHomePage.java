@@ -1,6 +1,7 @@
 package Page;
 
 import Utilities.ReusableMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,9 +13,10 @@ public class ArabamHomePage extends ReusableMethods {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    private final String ZERO_KM_CAR_BUTTON = "//p[contains(text(),'Sıfır km araç özelliklerini ve')]";
-    private final String ARABAM_COM_LOGO = "//img[@alt='arabam.com']";
-    private final String ALL_ADDS_ELEMENT =  "//span[contains(text(),'Tüm İlanlar')]";
+
+    private final By ZERO_KM_CAR_BUTTON = By.xpath("//p[contains(text(),'Sıfır km araç özelliklerini ve')]");
+    private final By ARABAM_COM_LOGO = By.xpath("//img[@alt='arabam.com']");
+    private final By ALL_ADDS_ELEMENT = By.xpath("//span[contains(text(),'Tüm İlanlar')]");
 
     public ZeroKmCarPage clickZeroCarButton(){
 

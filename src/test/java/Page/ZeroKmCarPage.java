@@ -1,6 +1,7 @@
 package Page;
 
 import Utilities.ReusableMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,10 +15,9 @@ public class ZeroKmCarPage extends ReusableMethods {
         PageFactory.initElements(driver,this);
     }
 
-    private final String BRAND = "//select[@class='brands']";
-    private final String MODEL = "//select[@class='select-sub-model']";
-    private final String SEARCH_BUTTON = "//button[@id='js-hook-search-by-brand-modelbase']";
-
+    private final By BRAND = By.xpath("//select[@class='brands']");
+    private final By MODEL = By.xpath("//select[@class='select-sub-model']");
+    private final By SEARCH_BUTTON = By.xpath("//button[@id='js-hook-search-by-brand-modelbase']");
 
     public ZeroKmCarPage selectBrand(String brandName){
 

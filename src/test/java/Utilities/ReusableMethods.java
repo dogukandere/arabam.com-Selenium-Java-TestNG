@@ -34,25 +34,25 @@ public class ReusableMethods {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void click(String xpath){
-        WebElement element = driver.findElement(By.xpath(xpath));
+    public void click(By xpath){
+        WebElement element = driver.findElement(xpath);
         waitUntilElementIsVisible(element,10);
         element.click();
     }
 
-    public boolean isDisplayed(String xpath){
-        WebElement element = driver.findElement(By.xpath(xpath));
+    public boolean isDisplayed(By xpath){
+        WebElement element = driver.findElement(xpath);
         waitUntilElementIsVisible(element,10);
         return element.isDisplayed();
     }
 
-    public boolean isClickable(String xpath){
-        WebElement element = driver.findElement(By.xpath(xpath));
+    public boolean isClickable(By xpath){
+        WebElement element = driver.findElement(xpath);
         return element.isEnabled();
     }
 
-    public void sendKeys(String xpath, String value){
-        WebElement element = driver.findElement(By.xpath(xpath));
+    public void sendKeys(By xpath, String value){
+        WebElement element = driver.findElement(xpath);
         waitUntilElementIsVisible(element,10);
         element.sendKeys(value);
     }
@@ -66,13 +66,13 @@ public class ReusableMethods {
         return this;
     }
 
-    public void dropDownSelectByText(String xpath,String value){
-        WebElement element = driver.findElement(By.xpath(xpath));
+    public void dropDownSelectByText(By xpath,String value){
+        WebElement element = driver.findElement(xpath);
         Select VisibleText = new Select (element);
         VisibleText.selectByVisibleText(value);
     }
 
-    protected String getTextOfElement(String xpath) {
-        return driver.findElement(By.xpath(xpath)).getText();
+    protected String getTextOfElement(By xpath) {
+        return driver.findElement(xpath).getText();
     }
 }
