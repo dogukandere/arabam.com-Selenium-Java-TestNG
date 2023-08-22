@@ -20,6 +20,7 @@ public class ArabamTest extends TestBase {
 
      @BeforeClass
      public void before() {
+
          arabamHomePage = new ArabamHomePage(driver);
          carDetailPage = new CarDetailPage(driver);
          allAdsPage = new AllAdsPage(driver);
@@ -30,7 +31,8 @@ public class ArabamTest extends TestBase {
 
     @Test(priority = 1 , description = "Search a car on the zero km car page")
     public void checkBmw7SeriesDetailPage(){
-        arabamHomePage.clickZeroCarButton()
+
+        arabamHomePage.clickZeroKmCarButton()
                 .selectBrand("BMW")
                 .selectModel("7 serisi")
                 .clickSearchButton();
@@ -44,6 +46,7 @@ public class ArabamTest extends TestBase {
 
     @Test(priority = 2 , description = "Verify the all ads page")
     public void test02(){
+
         navigateToUrl(mainUrl);
         arabamHomePage.goToAllAds();
         Assert.assertTrue(allAdsPage.isFavAdsButtonDisplayed());
@@ -56,6 +59,7 @@ public class ArabamTest extends TestBase {
 
     @Test(priority = 3 , description = "Verify the last 24 hour page")
     public void test03(){
+
          navigateToUrl(mainUrl);
          arabamHomePage.goToLast24HourPage();
          Assert.assertEquals(driver.getCurrentUrl(),"https://www.arabam.com/ikinci-el?days=1");

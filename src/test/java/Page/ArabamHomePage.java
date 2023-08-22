@@ -3,23 +3,23 @@ package Page;
 import Utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public class ArabamHomePage extends ReusableMethods {
+
     WebDriver driver;
 
     public ArabamHomePage(WebDriver driver) {
+
         super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver,this);
     }
 
-    private final By ZERO_KM_CAR_BUTTON = By.xpath("//p[contains(text(),'Sıfır km araç özelliklerini ve')]");
-    private final By ARABAM_COM_LOGO = By.xpath("//img[@alt='arabam.com']");
-    private final By ALL_ADDS_ELEMENT = By.xpath("//span[contains(text(),'Tüm İlanlar')]");
-    private final By LAST_24_HOUR_BUTTON = By.xpath("//span[normalize-space()='Son 24 Saat']");
+    private static final By ZERO_KM_CAR_BUTTON = By.xpath("//p[contains(text(),'Sıfır km araç özelliklerini ve')]");
+    private static final By ARABAM_COM_LOGO = By.xpath("//img[@alt='arabam.com']");
+    private static final By ALL_ADDS_ELEMENT = By.xpath("//span[contains(text(),'Tüm İlanlar')]");
+    private static final By LAST_24_HOURS_BUTTON = By.xpath("//span[normalize-space()='Son 24 Saat']");
 
-    public ZeroKmCarPage clickZeroCarButton(){
+    public ZeroKmCarPage clickZeroKmCarButton(){
 
         click(ZERO_KM_CAR_BUTTON);
         return new ZeroKmCarPage(driver);
@@ -38,7 +38,7 @@ public class ArabamHomePage extends ReusableMethods {
 
     public Last24HoursPage goToLast24HourPage(){
 
-        click(LAST_24_HOUR_BUTTON);
+        click(LAST_24_HOURS_BUTTON);
         return new Last24HoursPage(driver);
     }
 }

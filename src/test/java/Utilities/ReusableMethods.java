@@ -6,13 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import java.sql.Driver;
 import java.time.Duration;
 
-
 public class ReusableMethods {
+
     WebDriver driver;
     WebDriverWait wait;
 
@@ -25,39 +22,47 @@ public class ReusableMethods {
     }
 
     public void waitUntilElementIsVisible(WebElement element , int time){
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public void waitUntilElementIsClickable(WebElement element , int time){
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void click(By xpath){
-        WebElement element = driver.findElement(xpath);
+    public void click(By by){
+
+        WebElement element = driver.findElement(by);
         waitUntilElementIsVisible(element,10);
         element.click();
     }
 
-    public boolean isDisplayed(By xpath){
-        WebElement element = driver.findElement(xpath);
+    public boolean isDisplayed(By by){
+
+        WebElement element = driver.findElement(by);
         waitUntilElementIsVisible(element,10);
         return element.isDisplayed();
     }
 
-    public boolean isClickable(By xpath){
-        WebElement element = driver.findElement(xpath);
+    public boolean isClickable(By by){
+
+        WebElement element = driver.findElement(by);
+        waitUntilElementIsVisible(element,10);
         return element.isEnabled();
     }
 
-    public void sendKeys(By xpath, String value){
-        WebElement element = driver.findElement(xpath);
+    public void sendKeys(By by, String value){
+
+        WebElement element = driver.findElement(by);
         waitUntilElementIsVisible(element,10);
         element.sendKeys(value);
     }
 
     public ReusableMethods waitFor(int sec) {
+
         try {
             Thread.sleep(sec * 1000);
         } catch (InterruptedException e) {
@@ -66,13 +71,15 @@ public class ReusableMethods {
         return this;
     }
 
-    public void dropDownSelectByText(By xpath,String value){
-        WebElement element = driver.findElement(xpath);
+    public void dropDownSelectByText(By by,String value){
+
+        WebElement element = driver.findElement(by);
         Select VisibleText = new Select (element);
         VisibleText.selectByVisibleText(value);
     }
 
-    protected String getTextOfElement(By xpath) {
-        return driver.findElement(xpath).getText();
+    protected String getTextOfElement(By by) {
+
+        return driver.findElement(by).getText();
     }
 }
