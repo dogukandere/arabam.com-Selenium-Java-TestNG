@@ -36,28 +36,28 @@ public class ReusableMethods {
     public void click(By by){
 
         WebElement element = driver.findElement(by);
-        waitUntilElementIsVisible(element,10);
+        waitUntilElementIsVisible(element,20);
         element.click();
     }
 
     public boolean isDisplayed(By by){
 
         WebElement element = driver.findElement(by);
-        waitUntilElementIsVisible(element,10);
+        waitUntilElementIsVisible(element,20);
         return element.isDisplayed();
     }
 
     public boolean isClickable(By by){
 
         WebElement element = driver.findElement(by);
-        waitUntilElementIsVisible(element,10);
+        waitUntilElementIsVisible(element,20);
         return element.isEnabled();
     }
 
     public void sendKeys(By by, String value){
 
         WebElement element = driver.findElement(by);
-        waitUntilElementIsVisible(element,10);
+        waitUntilElementIsVisible(element,20);
         element.sendKeys(value);
     }
 
