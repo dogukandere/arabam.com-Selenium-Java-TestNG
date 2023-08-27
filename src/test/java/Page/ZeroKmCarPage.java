@@ -2,17 +2,8 @@ package Page;
 
 import Utilities.ReusableMethods;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class ZeroKmCarPage extends ReusableMethods {
-
-    WebDriver driver;
-
-    public ZeroKmCarPage(WebDriver driver) {
-
-        super(driver);
-        this.driver = driver;
-    }
 
     private static final By BRAND = By.xpath("//select[@class='brands']");
     private static final By MODEL = By.xpath("//select[@class='select-sub-model']");
@@ -20,6 +11,7 @@ public class ZeroKmCarPage extends ReusableMethods {
 
     public ZeroKmCarPage selectBrand(String brandName){
 
+        waitFor(2);
         dropDownSelectByText(BRAND, brandName);
         return this;
     }
@@ -33,6 +25,6 @@ public class ZeroKmCarPage extends ReusableMethods {
     public CarDetailPage clickSearchButton(){
 
         click(SEARCH_BUTTON);
-        return new CarDetailPage(driver);
+        return new CarDetailPage();
     }
 }

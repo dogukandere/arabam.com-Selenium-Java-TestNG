@@ -4,29 +4,33 @@ import Page.ArabamHomePage;
 import Page.CarDetailPage;
 import Page.AllAdsPage;
 import Page.Last24HoursPage;
-import Utilities.TestBase;
+import Utilities.DriverFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class ArabamTest extends TestBase {
+import static Utilities.DriverFactory.driver;
 
-    private ArabamHomePage arabamHomePage;
-    private CarDetailPage carDetailPage;
-    private AllAdsPage allAdsPage;
-    private Last24HoursPage last24HoursPage;
+public class ArabamTest {
+
+    private static ArabamHomePage arabamHomePage;
+    private static CarDetailPage carDetailPage;
+    private static AllAdsPage allAdsPage;
+    private static Last24HoursPage last24HoursPage;
 
     private static final String mainUrl = "https://www.arabam.com/";
 
-     @BeforeClass
+     @BeforeTest
      public void before() {
 
-         arabamHomePage = new ArabamHomePage(driver);
-         carDetailPage = new CarDetailPage(driver);
-         allAdsPage = new AllAdsPage(driver);
-         last24HoursPage = new Last24HoursPage(driver);
+         DriverFactory.getDriver();
 
-         navigateToUrl(mainUrl);
+         arabamHomePage = new ArabamHomePage();
+         carDetailPage = new CarDetailPage();
+         allAdsPage = new AllAdsPage();
+         last24HoursPage = new Last24HoursPage();
+
+         driver.navigate().to(mainUrl);
      }
 
     @Test(priority = 1 , description = "Search a car on the zero km car page")
@@ -47,7 +51,7 @@ public class ArabamTest extends TestBase {
     @Test(priority = 2 , description = "Verify the all ads page")
     public void test02(){
 
-        navigateToUrl(mainUrl);
+        driver.navigate().to(mainUrl);
         arabamHomePage.goToAllAds();
         Assert.assertTrue(allAdsPage.isFavAdsButtonDisplayed());
         Assert.assertTrue(allAdsPage.isFavSearchButtonDisplayed());
@@ -60,7 +64,7 @@ public class ArabamTest extends TestBase {
     @Test(priority = 3 , description = "Verify the last 24 hour page")
     public void test03(){
 
-         navigateToUrl(mainUrl);
+         driver.navigate().to(mainUrl);
          arabamHomePage.goToLast24HourPage();
          Assert.assertEquals(driver.getCurrentUrl(),"https://www.arabam.com/ikinci-el?days=1");
          Assert.assertTrue(last24HoursPage.isClearButtonDisplayed());

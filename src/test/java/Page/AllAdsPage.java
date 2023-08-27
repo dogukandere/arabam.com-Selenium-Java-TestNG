@@ -2,17 +2,8 @@ package Page;
 
 import Utilities.ReusableMethods;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class AllAdsPage extends ReusableMethods {
-
-    WebDriver driver;
-
-    public AllAdsPage(WebDriver driver) {
-
-        super(driver);
-        this.driver = driver;
-    }
 
     private static final By FAV_ADS_BUTTON = By.xpath("//a[@class='fav-menu-button']") ;
     private static final By FAV_SEARCH_BUTTON = By.xpath("//button[@id='favSearchButton']");
