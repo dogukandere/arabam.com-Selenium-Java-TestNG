@@ -12,17 +12,17 @@ public class AllAdsPage extends ReusableMethods {
 
     public boolean isFavAdsButtonDisplayed(){
 
-        return isClickable(FAV_ADS_BUTTON);
+        return isDisplayed(FAV_ADS_BUTTON);
     }
 
     public boolean isFavSearchButtonDisplayed(){
 
-        return isClickable(FAV_SEARCH_BUTTON);
+        return isDisplayed(FAV_SEARCH_BUTTON);
     }
 
     public boolean isCompareAdsButtonDisplayed(){
 
-        return isClickable(COMPARE_ADS_BUTTON);
+        return isDisplayed(COMPARE_ADS_BUTTON);
     }
 
     public boolean isArabamLogoDisplayed(){
