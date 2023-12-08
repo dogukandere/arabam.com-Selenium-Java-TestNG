@@ -6,7 +6,6 @@ public class Hooks {
 
     @AfterTest
     public static void tearDown() {
-
         DriverFactory.closeDriver();
     }
 }

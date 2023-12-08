@@ -22,7 +22,6 @@ public class ArabamTest {
 
      @BeforeTest
      public void before() {
-
          DriverFactory.getDriver();
 
          arabamHomePage = new ArabamHomePage();
@@ -33,7 +32,6 @@ public class ArabamTest {
 
     @Test(priority = 1 , description = "Search a car on the zero km car page")
     public void checkBmw7SeriesDetailPage(){
-
         driver.navigate().to(mainUrl);
         arabamHomePage.clickZeroKmCarButton()
                 .selectBrand("BMW")
@@ -49,7 +47,6 @@ public class ArabamTest {
 
     @Test(priority = 2 , description = "Verify the all ads page")
     public void test02(){
-
         driver.navigate().to(mainUrl);
         arabamHomePage.goToAllAds();
         assertTrue(allAdsPage.isFavAdsButtonDisplayed());
@@ -62,7 +59,6 @@ public class ArabamTest {
 
     @Test(priority = 3 , description = "Verify the last 24 hour page")
     public void test03(){
-
          driver.navigate().to(mainUrl);
          arabamHomePage.goToLast24HourPage();
          assertEquals(driver.getCurrentUrl(),"https://www.arabam.com/ikinci-el?days=1");

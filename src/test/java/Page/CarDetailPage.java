@@ -9,12 +9,10 @@ public class CarDetailPage extends ReusableMethods {
     private static final By ENGINE_OPTIONS_BUTTON = By.xpath("//a[@data-href='#engine-options']");
 
     public String getCarDetailTitle() {
-
         return getTextOfElement(DETAIL_PAGE_TITLE_XPATH);
     }
 
     public boolean isEngineOptionsButtonClickable() {
-
         return isClickable(ENGINE_OPTIONS_BUTTON);
     }
 }
